@@ -1,21 +1,25 @@
 <?php
 
-namespace Hashbangcode\Wevolution\Demos\Controller;
+namespace Hashbangcode\WevolutionDemo\Controller;
 
-use Hashbangcode\Wevolution\Demos\Controller\BaseController;
+use Hashbangcode\WevolutionDemo\Controller\BaseController;
 use Slim\Http\Request;
 use Slim\Http\Response;
 
-
+/**
+ * Class HomeController.
+ *
+ * @package Hashbangcode\WevolutionDemo\Controller
+ */
 class HomeController extends BaseController
 {
 
-    public function home(Request $request, Response $response, $args)
-    {
-        // Sample log message
-        $this->logger->info("Index '/' route");
+  public function home(Request $request, Response $response, $args)
+  {
+    // Sample log message
+    $this->logger->info("Index '/' route");
 
-        // Render index view
-        return $this->view->render($response, 'index.twig');
-    }
+    // Render index view
+    return $this->view->render($response, 'index.twig');
+  }
 }

@@ -1,4 +1,10 @@
 <?php
+/**
+ * @file settings.php
+ *
+ * Sets up some default settings for the application.
+ */
+
 return [
     'settings' => [
         'displayErrorDetails' => true, // set to false in production

@@ -1,10 +1,14 @@
 <?php
-// DIC configuration
+/**
+ * @file dependencies.php
+ *
+ * Dependency integration container configuration.
+ */
 
-// Get container
+// Set up the controller.
 $container = $app->getContainer();
 
-// monolog
+// Add logging via Monolog.
 $container['logger'] = function ($container) {
     $settings = $container->get('settings')['logger'];
     $logger = new Monolog\Logger($settings['name']);
@@ -13,7 +17,7 @@ $container['logger'] = function ($container) {
     return $logger;
 };
 
-// Register component on container.
+// Register twig as the view component on the container.
 $container['view'] = function ($container) {
 
     $settings = $container->get('settings')['renderer'];

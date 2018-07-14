@@ -1,22 +1,48 @@
 <?php
 
-namespace Hashbangcode\Wevolution\Demos\Controller;
+namespace Hashbangcode\WevolutionDemo\Controller;
 
 use Interop\Container\ContainerInterface;
 
+/**
+ * Class BaseController.
+ *
+ * Sets up some default dependencies for sub classes to use.
+ *
+ * @package Hashbangcode\WevolutionDemo\Controller
+ */
 abstract class BaseController
 {
-    protected $container;
 
-    protected $view;
+  /**
+   * Container.
+   *
+   * @var \Interop\Container\ContainerInterface
+   */
+  protected $container;
 
-    protected $logger;
+  /**
+   * The templating engine.
+   *
+   * @var \Slim\Views\Twig
+   */
+  protected $view;
 
-    // constructor receives container instance
-    public function __construct(ContainerInterface $container)
-    {
-        $this->container = $container;
-        $this->view = $this->container->view;
-        $this->logger = $this->container->logger;
-    }
+  /**
+   * The logger.
+   *
+   * @var \Monolog\Logger
+   */
+  protected $logger;
+
+  /**
+   * BaseController constructor.
+   *
+   * @param \Interop\Container\ContainerInterface $container
+   */
+  public function __construct(ContainerInterface $container) {
+    $this->container = $container;
+    $this->view = $this->container->view;
+    $this->logger = $this->container->logger;
+  }
 }
