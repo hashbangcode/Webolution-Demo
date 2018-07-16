@@ -2,6 +2,7 @@
 
 namespace Hashbangcode\WevolutionDemo\Controller;
 
+use Hashbangcode\Wevolution\Evolution\Population\Decorators\PopulationDecoratorFactory;
 use Hashbangcode\WevolutionDemo\Controller\BaseController;
 use Slim\Http\Request;
 use Slim\Http\Response;
@@ -32,11 +33,11 @@ img {padding:0px;margin:0px;}';
     $evolution = new EvolutionStorage();
 
     $evolution->setEvolutionId(1);
-
     $evolution->setupDatabase('sqlite:' . $database);
 
-    $evolution->setIndividualsPerGeneration(200);
-    ///$evolution->setGlobalMutationFactor(1);
+    $evolution->setIndividualsPerGeneration(100);
+    $evolution->setGlobalMutationFactor(1);
+    $evolution->setGlobalMutationAmount(10);
 
     $generation = $evolution->getGeneration();
 
@@ -54,13 +55,36 @@ img {padding:0px;margin:0px;}';
       $evolution->loadPopulation();
     }
 
-    $evolution->runGeneration();
+    if (isset($args['step']) && is_numeric($args['step'])) {
+      // Run as many generations as is requested.
+      for ($i = 0; $i < $args['step']; ++$i) {
+        $evolution->runGeneration();
+      }
+    }
+    else {
+      // Just run one generation.
+      $evolution->runGeneration();
+    }
 
     $output = '';
 
     $output .= '<p>Generation: ' . $evolution->getGeneration() . '</p>';
 
-    $output .= nl2br($evolution->renderGenerations());
+    $populationDecorator = PopulationDecoratorFactory::getPopulationDecorator($evolution->getCurrentPopulation(), 'html');
+    $output .= $populationDecorator->render() . PHP_EOL . '<br>';
+
+    $steps = [
+      1,
+      20,
+      50,
+      100,
+      500,
+    ];
+    $output .= '<ul>';
+    foreach ($steps as $step) {
+      $output .= '<li><a href="/color_evolution_database/' . $step . '">' . $step . '</a></li>';
+    }
+    $output .= '</ul>';
 
     return $this->view->render($response, 'demos.twig', [
       'title' => $title,
