@@ -21,3 +21,6 @@ $app->get('/color_evolution', '\Hashbangcode\WevolutionDemo\Controller\ColorCont
 
 // Image.
 $app->get('/image_evolution', '\Hashbangcode\WevolutionDemo\Controller\ImageController:imageEvolution');
+
+// Dashboard
+$app->get('/color_dashboard_evolution', '\Hashbangcode\WevolutionDemo\Controller\ColorDashboardController:colorDashboardEvolution');

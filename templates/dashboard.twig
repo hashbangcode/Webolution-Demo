@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        {{ meta|raw }}
+        <title>Webolution</title>
+        <link href="css/styles.css" rel="stylesheet" type="text/css">
+        <style>
+            #current-generation {
+                border-color: lightgray;
+            }
+
+            #statistics {
+                border-color: lightgray;
+            }
+
+            #statistics-graphs {
+                border-color: lightgray;
+            }
+
+            #past-generations {
+                border-color: lightgray;
+            }
+
+        </style>
+    </head>
+    <body>
+        <h1>{{ title }}</h1>
+        <p><a href="/">Home</a></p>
+
+        <div id="current-generation">
+            {{ current_generation }}
+        </div>
+
+        <div id="statistics">
+            {{ statistics }}
+        </div>
+
+        <div id="statistics-graphs">
+            {{ graphs }}
+        </div>
+
+        <div id="past-generations">
+            {{ past_generations }}
+        </div>
+
+    </body>
+</html>
