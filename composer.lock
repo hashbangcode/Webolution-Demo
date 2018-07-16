@@ -79,12 +79,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/philipnorton42/webolution.git",
-                "reference": "d7f7a203c9dead852905113af353d261c056b905"
+                "reference": "72eed19a7483ceca18ddb629d58e635d91cab1bf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/philipnorton42/webolution/zipball/d7f7a203c9dead852905113af353d261c056b905",
-                "reference": "d7f7a203c9dead852905113af353d261c056b905",
+                "url": "https://api.github.com/repos/philipnorton42/webolution/zipball/72eed19a7483ceca18ddb629d58e635d91cab1bf",
+                "reference": "72eed19a7483ceca18ddb629d58e635d91cab1bf",
                 "shasum": ""
             },
             "require": {
@@ -116,7 +116,7 @@
             "keywords": [
                 "wevolution"
             ],
-            "time": "2018-07-14T09:57:30+00:00"
+            "time": "2018-07-15T18:44:24+00:00"
         },
         {
             "name": "monolog/monolog",
