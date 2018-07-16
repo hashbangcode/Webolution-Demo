@@ -18,6 +18,7 @@ $app->get('/number_evolution', '\Hashbangcode\WevolutionDemo\Controller\NumberCo
 
 // Color.
 $app->get('/color_evolution', '\Hashbangcode\WevolutionDemo\Controller\ColorController:colorEvolution');
+$app->get('/color_evolution_database', '\Hashbangcode\WevolutionDemo\Controller\ColorDatabaseController:colorEvolution');
 
 // Image.
 $app->get('/image_evolution', '\Hashbangcode\WevolutionDemo\Controller\ImageController:imageEvolution');
