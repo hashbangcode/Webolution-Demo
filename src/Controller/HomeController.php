@@ -1,15 +1,15 @@
 <?php
 
-namespace Hashbangcode\WevolutionDemo\Controller;
+namespace Hashbangcode\WebolutionDemo\Controller;
 
-use Hashbangcode\WevolutionDemo\Controller\BaseController;
+use Hashbangcode\WebolutionDemo\Controller\BaseController;
 use Slim\Http\Request;
 use Slim\Http\Response;
 
 /**
  * Class HomeController.
  *
- * @package Hashbangcode\WevolutionDemo\Controller
+ * @package Hashbangcode\WebolutionDemo\Controller
  */
 class HomeController extends BaseController
 {

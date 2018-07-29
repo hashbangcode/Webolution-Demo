@@ -1,18 +1,18 @@
 <?php
 
-namespace Hashbangcode\WevolutionDemo\Controller;
+namespace Hashbangcode\WebolutionDemo\Controller;
 
-use Hashbangcode\WevolutionDemo\Controller\BaseController;
-use Hashbangcode\Wevolution\Evolution\EvolutionManager;
+use Hashbangcode\WebolutionDemo\Controller\BaseController;
+use Hashbangcode\Webolution\Evolution\EvolutionManager;
 use Slim\Http\Request;
 use Slim\Http\Response;
-use Hashbangcode\Wevolution\Evolution\Population\NumberPopulation;
-use Hashbangcode\Wevolution\Evolution\Individual\NumberIndividual;
+use Hashbangcode\Webolution\Evolution\Population\NumberPopulation;
+use Hashbangcode\Webolution\Evolution\Individual\NumberIndividual;
 
 /**
  * Class NumberController.
  *
- * @package Hashbangcode\WevolutionDemo\Controller
+ * @package Hashbangcode\WebolutionDemo\Controller
  */
 class NumberController extends BaseController
 {

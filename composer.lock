@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "94a123a7fed7b3c582804e8855ed639f",
+    "content-hash": "9b8e983d83ffb2116f109964e3a1ddd2",
     "packages": [
         {
             "name": "consoletvs/charts",
@@ -74,17 +74,17 @@
             "time": "2017-02-14T19:40:03+00:00"
         },
         {
-            "name": "hashbangcode/wevolution",
+            "name": "hashbangcode/webolution",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/philipnorton42/webolution.git",
-                "reference": "72eed19a7483ceca18ddb629d58e635d91cab1bf"
+                "reference": "9df27ea251b0cd07072d33cda26182b0bdbcd15a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/philipnorton42/webolution/zipball/72eed19a7483ceca18ddb629d58e635d91cab1bf",
-                "reference": "72eed19a7483ceca18ddb629d58e635d91cab1bf",
+                "url": "https://api.github.com/repos/philipnorton42/webolution/zipball/9df27ea251b0cd07072d33cda26182b0bdbcd15a",
+                "reference": "9df27ea251b0cd07072d33cda26182b0bdbcd15a",
                 "shasum": ""
             },
             "require": {
@@ -99,7 +99,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Hashbangcode\\Wevolution\\": "src"
+                    "Hashbangcode\\Webolution\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -112,11 +112,11 @@
                     "email": "philipnorton42@gmail.com"
                 }
             ],
-            "description": "Wevolution, an evolution engine.",
+            "description": "Webolution, an evolution engine.",
             "keywords": [
-                "wevolution"
+                "webolution"
             ],
-            "time": "2018-07-15T18:44:24+00:00"
+            "time": "2018-07-29T20:09:16+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -800,6 +800,51 @@
                 "instantiate"
             ],
             "time": "2018-03-05T09:41:42+00:00"
+        },
+        {
+            "name": "hashbangcode/wevolution",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/philipnorton42/webolution.git",
+                "reference": "72eed19a7483ceca18ddb629d58e635d91cab1bf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/philipnorton42/webolution/zipball/72eed19a7483ceca18ddb629d58e635d91cab1bf",
+                "reference": "72eed19a7483ceca18ddb629d58e635d91cab1bf",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "phpdocumentor/phpdocumentor": "2.*",
+                "phpspec/prophecy": "^1.7",
+                "phpunit/phpunit": ">=4.8 < 6.0",
+                "squizlabs/php_codesniffer": "^2.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Hashbangcode\\Wevolution\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Philip Norton",
+                    "email": "philipnorton42@gmail.com"
+                }
+            ],
+            "description": "Wevolution, an evolution engine.",
+            "keywords": [
+                "wevolution"
+            ],
+            "time": "2018-07-15T18:44:24+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -2080,7 +2125,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "hashbangcode/wevolution": 20
+        "hashbangcode/webolution": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

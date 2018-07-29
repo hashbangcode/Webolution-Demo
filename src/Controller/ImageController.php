@@ -1,20 +1,20 @@
 <?php
 
-namespace Hashbangcode\WevolutionDemo\Controller;
+namespace Hashbangcode\WebolutionDemo\Controller;
 
-use Hashbangcode\WevolutionDemo\Controller\BaseController;
+use Hashbangcode\WebolutionDemo\Controller\BaseController;
 use Slim\Http\Request;
 use Slim\Http\Response;
-use Hashbangcode\Wevolution\Evolution\Evolution;
-use Hashbangcode\Wevolution\Evolution\EvolutionStorage;
-use Hashbangcode\Wevolution\Evolution\Population\ImagePopulation;
-use Hashbangcode\Wevolution\Evolution\Individual\ImageIndividual;
-use Hashbangcode\Wevolution\Evolution\EvolutionManager;
+use Hashbangcode\Webolution\Evolution\Evolution;
+use Hashbangcode\Webolution\Evolution\EvolutionStorage;
+use Hashbangcode\Webolution\Evolution\Population\ImagePopulation;
+use Hashbangcode\Webolution\Evolution\Individual\ImageIndividual;
+use Hashbangcode\Webolution\Evolution\EvolutionManager;
 
 /**
  * Class ImageController.
  *
- * @package Hashbangcode\WevolutionDemo\Controller
+ * @package Hashbangcode\WebolutionDemo\Controller
  */
 class ImageController extends BaseController
 {

@@ -1,22 +1,22 @@
 <?php
 
-namespace Hashbangcode\WevolutionDemo\Controller;
+namespace Hashbangcode\WebolutionDemo\Controller;
 
-use Hashbangcode\Wevolution\Evolution\Population\Decorators\PopulationDecoratorFactory;
-use Hashbangcode\WevolutionDemo\Controller\BaseController;
+use Hashbangcode\Webolution\Evolution\Population\Decorators\PopulationDecoratorFactory;
+use Hashbangcode\WebolutionDemo\Controller\BaseController;
 use Slim\Http\Request;
 use Slim\Http\Response;
-use Hashbangcode\Wevolution\Evolution\Evolution;
-use Hashbangcode\Wevolution\Evolution\EvolutionStorage;
-use Hashbangcode\Wevolution\Type\Color\Color;
-use Hashbangcode\Wevolution\Evolution\Population\ColorPopulation;
-use Hashbangcode\Wevolution\Evolution\Individual\ColorIndividual;
-use Hashbangcode\Wevolution\Evolution\EvolutionManager;
+use Hashbangcode\Webolution\Evolution\Evolution;
+use Hashbangcode\Webolution\Evolution\EvolutionStorage;
+use Hashbangcode\Webolution\Type\Color\Color;
+use Hashbangcode\Webolution\Evolution\Population\ColorPopulation;
+use Hashbangcode\Webolution\Evolution\Individual\ColorIndividual;
+use Hashbangcode\Webolution\Evolution\EvolutionManager;
 
 /**
  * Class ColorController.
  *
- * @package Hashbangcode\WevolutionDemo\Controller
+ * @package Hashbangcode\WebolutionDemo\Controller
  */
 class ColorDatabaseController extends BaseController
 {

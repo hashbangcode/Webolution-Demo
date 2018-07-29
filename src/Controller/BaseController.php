@@ -1,6 +1,6 @@
 <?php
 
-namespace Hashbangcode\WevolutionDemo\Controller;
+namespace Hashbangcode\WebolutionDemo\Controller;
 
 use Interop\Container\ContainerInterface;
 
@@ -9,7 +9,7 @@ use Interop\Container\ContainerInterface;
  *
  * Sets up some default dependencies for sub classes to use.
  *
- * @package Hashbangcode\WevolutionDemo\Controller
+ * @package Hashbangcode\WebolutionDemo\Controller
  */
 abstract class BaseController
 {

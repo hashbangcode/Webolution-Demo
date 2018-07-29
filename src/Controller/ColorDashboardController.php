@@ -1,20 +1,20 @@
 <?php
 
-namespace Hashbangcode\WevolutionDemo\Controller;
+namespace Hashbangcode\WebolutionDemo\Controller;
 
-use Hashbangcode\WevolutionDemo\Controller\BaseController;
+use Hashbangcode\WebolutionDemo\Controller\BaseController;
 use Slim\Http\Request;
 use Slim\Http\Response;
-use Hashbangcode\Wevolution\Evolution\Evolution;
-use Hashbangcode\Wevolution\Evolution\EvolutionStorage;
-use Hashbangcode\Wevolution\Evolution\Population\ColorPopulation;
-use Hashbangcode\Wevolution\Evolution\Individual\ColorIndividual;
-use Hashbangcode\Wevolution\Evolution\EvolutionManager;
+use Hashbangcode\Webolution\Evolution\Evolution;
+use Hashbangcode\Webolution\Evolution\EvolutionStorage;
+use Hashbangcode\Webolution\Evolution\Population\ColorPopulation;
+use Hashbangcode\Webolution\Evolution\Individual\ColorIndividual;
+use Hashbangcode\Webolution\Evolution\EvolutionManager;
 
 /**
  * Class ColorDashboardController.
  *
- * @package Hashbangcode\WevolutionDemo\Controller
+ * @package Hashbangcode\WebolutionDemo\Controller
  */
 class ColorDashboardController extends BaseController
 {

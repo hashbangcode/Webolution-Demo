@@ -6,22 +6,22 @@
  */
 
 // Main.
-$app->get('/', '\Hashbangcode\WevolutionDemo\Controller\HomeController:home');
+$app->get('/', '\Hashbangcode\WebolutionDemo\Controller\HomeController:home');
 
 // Adminer.
-$app->any('/adminer', '\Hashbangcode\WevolutionDemo\Controller\AdminerController:adminer');
-$app->any('/clear_database', '\Hashbangcode\WevolutionDemo\Controller\AdminerController:clearDatabase');
+$app->any('/adminer', '\Hashbangcode\WebolutionDemo\Controller\AdminerController:adminer');
+$app->any('/clear_database', '\Hashbangcode\WebolutionDemo\Controller\AdminerController:clearDatabase');
 
 // Number.
-$app->get('/number_evolution', '\Hashbangcode\WevolutionDemo\Controller\NumberController:numberEvolution');
-//$app->map(['GET', 'POST'], '/number_evolution_form', '\Hashbangcode\WevolutionDemo\Controller\NumberController:numberEvolutionForm');
+$app->get('/number_evolution', '\Hashbangcode\WebolutionDemo\Controller\NumberController:numberEvolution');
+//$app->map(['GET', 'POST'], '/number_evolution_form', '\Hashbangcode\WebolutionDemo\Controller\NumberController:numberEvolutionForm');
 
 // Color.
-$app->get('/color_evolution', '\Hashbangcode\WevolutionDemo\Controller\ColorController:colorEvolution');
-$app->get('/color_evolution_database[/{step}]', '\Hashbangcode\WevolutionDemo\Controller\ColorDatabaseController:colorEvolution');
+$app->get('/color_evolution', '\Hashbangcode\WebolutionDemo\Controller\ColorController:colorEvolution');
+$app->get('/color_evolution_database[/{step}]', '\Hashbangcode\WebolutionDemo\Controller\ColorDatabaseController:colorEvolution');
 
 // Image.
-$app->get('/image_evolution', '\Hashbangcode\WevolutionDemo\Controller\ImageController:imageEvolution');
+$app->get('/image_evolution', '\Hashbangcode\WebolutionDemo\Controller\ImageController:imageEvolution');
 
 // Dashboard
-$app->get('/color_dashboard_evolution', '\Hashbangcode\WevolutionDemo\Controller\ColorDashboardController:colorDashboardEvolution');
+$app->get('/color_dashboard_evolution', '\Hashbangcode\WebolutionDemo\Controller\ColorDashboardController:colorDashboardEvolution');

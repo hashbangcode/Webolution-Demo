@@ -1,11 +1,11 @@
 <?php
 
-namespace Hashbangcode\WevolutionDemo\Controller;
+namespace Hashbangcode\WebolutionDemo\Controller;
 
-use Hashbangcode\WevolutionDemo\Controller\BaseController;
+use Hashbangcode\WebolutionDemo\Controller\BaseController;
 use Slim\Http\Request;
 use Slim\Http\Response;
-use Hashbangcode\Wevolution\Evolution\EvolutionStorage;
+use Hashbangcode\Webolution\Evolution\EvolutionStorage;
 
 class AdminerController extends BaseController
 {
