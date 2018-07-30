@@ -32,12 +32,14 @@ img {padding:0px;margin:0px;}';
     $database = realpath(__DIR__ . '/../../database') . '/database.sqlite';
     $evolution = new EvolutionStorage();
 
+    $individuals = 1000;
+
     $evolution->setEvolutionId(1);
     $evolution->setupDatabase('sqlite:' . $database);
 
-    $evolution->setIndividualsPerGeneration(100);
-    $evolution->setGlobalMutationFactor(1);
-    $evolution->setGlobalMutationAmount(10);
+    $evolution->setIndividualsPerGeneration($individuals);
+    $evolution->setGlobalMutationAmount(5);
+    $evolution->setReplicationType('crossover');
 
     $generation = $evolution->getGeneration();
 
@@ -45,7 +47,7 @@ img {padding:0px;margin:0px;}';
     $population->setDefaultRenderType('html');
 
     if ($generation == 0) {
-      for ($i = 0; $i < 30; $i++) {
+      for ($i = 0; $i < $individuals; $i++) {
         $population->addIndividual(ColorIndividual::generateFromRgb(255, 255, 255));
       }
 
@@ -85,6 +87,8 @@ img {padding:0px;margin:0px;}';
       $output .= '<li><a href="/color_evolution_database/' . $step . '">' . $step . '</a></li>';
     }
     $output .= '</ul>';
+
+    $output .= '<p><a href="/clear_database">Clear Database</a></p>';
 
     return $this->view->render($response, 'demos.twig', [
       'title' => $title,
