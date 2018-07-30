@@ -444,12 +444,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/slimphp/Slim.git",
-                "reference": "1ca78596de8f1b0e2389b812a6ce64d1ccd9e49f"
+                "reference": "dcfa982165d6583305f83b7688e37cee5e34a8bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/slimphp/Slim/zipball/1ca78596de8f1b0e2389b812a6ce64d1ccd9e49f",
-                "reference": "1ca78596de8f1b0e2389b812a6ce64d1ccd9e49f",
+                "url": "https://api.github.com/repos/slimphp/Slim/zipball/dcfa982165d6583305f83b7688e37cee5e34a8bc",
+                "reference": "dcfa982165d6583305f83b7688e37cee5e34a8bc",
                 "shasum": ""
             },
             "require": {
@@ -507,7 +507,7 @@
                 "micro",
                 "router"
             ],
-            "time": "2018-06-29T15:52:27+00:00"
+            "time": "2018-07-15T19:48:06+00:00"
         },
         {
             "name": "slim/twig-view",
@@ -683,12 +683,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "60a8f465d6f259c92a8fe0fb61cf8f767bd8d025"
+                "reference": "70db030571b8f3b33a26f1bfc2b1e23bbbee2985"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/60a8f465d6f259c92a8fe0fb61cf8f767bd8d025",
-                "reference": "60a8f465d6f259c92a8fe0fb61cf8f767bd8d025",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/70db030571b8f3b33a26f1bfc2b1e23bbbee2985",
+                "reference": "70db030571b8f3b33a26f1bfc2b1e23bbbee2985",
                 "shasum": ""
             },
             "require": {
@@ -742,7 +742,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2018-07-13T07:18:38+00:00"
+            "time": "2018-07-25T13:16:50+00:00"
         }
     ],
     "packages-dev": [
@@ -800,51 +800,6 @@
                 "instantiate"
             ],
             "time": "2018-03-05T09:41:42+00:00"
-        },
-        {
-            "name": "hashbangcode/wevolution",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/philipnorton42/webolution.git",
-                "reference": "72eed19a7483ceca18ddb629d58e635d91cab1bf"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/philipnorton42/webolution/zipball/72eed19a7483ceca18ddb629d58e635d91cab1bf",
-                "reference": "72eed19a7483ceca18ddb629d58e635d91cab1bf",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.1"
-            },
-            "require-dev": {
-                "phpdocumentor/phpdocumentor": "2.*",
-                "phpspec/prophecy": "^1.7",
-                "phpunit/phpunit": ">=4.8 < 6.0",
-                "squizlabs/php_codesniffer": "^2.8"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Hashbangcode\\Wevolution\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Philip Norton",
-                    "email": "philipnorton42@gmail.com"
-                }
-            ],
-            "description": "Wevolution, an evolution engine.",
-            "keywords": [
-                "wevolution"
-            ],
-            "time": "2018-07-15T18:44:24+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -1052,12 +1007,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "6471ce6aa91ec03e9fdf3ca188e277104d8a7d1c"
+                "reference": "dcf425ffc656e958ebf9780b796072e3daf44614"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/6471ce6aa91ec03e9fdf3ca188e277104d8a7d1c",
-                "reference": "6471ce6aa91ec03e9fdf3ca188e277104d8a7d1c",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/dcf425ffc656e958ebf9780b796072e3daf44614",
+                "reference": "dcf425ffc656e958ebf9780b796072e3daf44614",
                 "shasum": ""
             },
             "require": {
@@ -1107,7 +1062,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2018-05-09T14:00:54+00:00"
+            "time": "2018-07-18T09:55:46+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -2018,12 +1973,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "baca29061390e4390ad5957d5b7d95cb8fb2e98c"
+                "reference": "2e09dcbd0f06c29ab366daf46f2715754115044b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/baca29061390e4390ad5957d5b7d95cb8fb2e98c",
-                "reference": "baca29061390e4390ad5957d5b7d95cb8fb2e98c",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/2e09dcbd0f06c29ab366daf46f2715754115044b",
+                "reference": "2e09dcbd0f06c29ab366daf46f2715754115044b",
                 "shasum": ""
             },
             "require": {
@@ -2069,7 +2024,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2018-05-31T10:18:23+00:00"
+            "time": "2018-07-26T11:25:51+00:00"
         },
         {
             "name": "webmozart/assert",
