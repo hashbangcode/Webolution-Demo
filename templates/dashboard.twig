@@ -22,6 +22,28 @@
                 border-color: lightgray;
             }
 
+            #operations {
+                border-color: lightgray;
+            }
+
+            span {
+                width: 30px;
+                height: 30px;
+                display: inline-block;
+                padding: 0px;
+                margin: -2px;
+            }
+
+            a, a:link, a:visited, a:hover, a:active {
+                padding: 0px;
+                margin: 0px;
+            }
+
+            img {
+                padding: 0px;
+                margin: 0px;
+                border: 1px solid black;
+            }
         </style>
     </head>
     <body>
@@ -29,11 +51,11 @@
         <p><a href="/">Home</a></p>
 
         <div id="current-generation">
-            {{ current_generation }}
+            {{ current_generation|raw }}
         </div>
 
         <div id="statistics">
-            {{ statistics }}
+            {{ statistics|raw }}
         </div>
 
         <div id="statistics-graphs">
@@ -43,6 +65,19 @@
         <div id="past-generations">
             {{ past_generations }}
         </div>
+
+    <div id="operations">
+
+
+        <ul>
+        {% for step in operations.steps %}
+            <li><a href="/color_dashboard_evolution/step/{{ step }}">{{ step }}</a></li>
+        {% endfor %}
+        </ul>
+
+        <p><a href="/color_dashboard_evolution/clear_database">Clear Database</a></p>
+
+    </div>
 
     </body>
 </html>
