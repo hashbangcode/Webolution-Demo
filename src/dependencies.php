@@ -33,3 +33,13 @@ $container['view'] = function ($container) {
 
     return $view;
 };
+
+// Set up the database controller.
+$container['database'] = function ($container) {
+  $dbSettings = $container->get('settings')['database'];
+
+  $database = new \PDO('sqlite:'. $dbSettings['databasefile'], '', '', array(\PDO::ATTR_PERSISTENT => false));
+  //$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  //$pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+  return $database;
+};
