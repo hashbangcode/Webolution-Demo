@@ -14,8 +14,8 @@ class AdminerController extends BaseController
   {
 
     if (!isset($_GET['username']) && !isset($_GET['db']) && !isset($_GET['file'])) {
-      $database = realpath(__DIR__ . '/../../database/database.sqlite');
-      header('Location: http://localhost:8000/adminer?sqlite=&username=&db=' . $database);
+      $dbSettings = $this->container->get('settings')['database'];
+      header('Location: http://localhost:8000/adminer?sqlite=&username=&db=' . $dbSettings['databasefile']);
     }
 
     include __DIR__ . "/../../database/adminer.php";
@@ -23,10 +23,9 @@ class AdminerController extends BaseController
 
 
   public function clearDatabase(Request $request, Response $response, $args) {
-    $database = realpath(__DIR__ . '/../../database') . '/database.sqlite';
-    $evolution = new EvolutionStorage();
-    $evolution->setupDatabase('sqlite:' . $database);
-    $evolution->clearDatabase();
+
+    $evolutionMapper = new \Hashbangcode\WebolutionDemo\Model\Evolution($this->container->database);
+    $evolutionMapper->createDatabase();
 
     return $response->withStatus(302)->withHeader('Location', '/');
   }
