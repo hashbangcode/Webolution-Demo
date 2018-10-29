@@ -3,6 +3,7 @@
 namespace Hashbangcode\WebolutionDemo\Controller;
 
 use Hashbangcode\Webolution\Evolution\Population\Decorators\PopulationDecoratorFactory;
+use Hashbangcode\Webolution\Evolution\Statistics\Decorators\StatisticsDecoratorHtml;
 use Hashbangcode\WebolutionDemo\Controller\BaseController;
 use Slim\Http\Request;
 use Slim\Http\Response;
@@ -29,17 +30,22 @@ class ColorDatabaseController extends BaseController
 a, a:link, a:visited, a:hover, a:active {padding:0px;margin:0px;}
 img {padding:0px;margin:0px;}';
 
-    $database = realpath(__DIR__ . '/../../database') . '/database.sqlite';
-    $evolution = new EvolutionStorage();
+    $evolutionId = 99;
+
+    $evolutionMapper = new \Hashbangcode\WebolutionDemo\Model\Evolution($this->container->database);
+    $populationMapper = new \Hashbangcode\WebolutionDemo\Model\Population($this->container->database);
+    $individualMapper = new \Hashbangcode\WebolutionDemo\Model\Individual($this->container->database);
+    $statisticMapper = new \Hashbangcode\WebolutionDemo\Model\Statistics($this->container->database);
+
+    ///$evolutionMapper->createDatabase();
+
+    $evolution = $evolutionMapper->load($evolutionId);
 
     $individuals = 1000;
 
-    $evolution->setEvolutionId(1);
-    $evolution->setupDatabase('sqlite:' . $database);
-
     $evolution->setIndividualsPerGeneration($individuals);
     $evolution->setGlobalMutationAmount(5);
-    $evolution->setReplicationType('crossover');
+    $evolution->setReplicationType(Evolution::REPLICATION_TYPE_CROSSOVER);
 
     $generation = $evolution->getGeneration();
 
@@ -52,20 +58,31 @@ img {padding:0px;margin:0px;}';
       }
 
       $evolution->setPopulation($population);
+      $evolutionMapper->insert($evolutionId, $evolution);
     } else {
+      $individuals = $individualMapper->loadGeneration($evolutionId, $evolution);
+      $population = $populationMapper->load($evolution->getGeneration(), $evolutionId);
+      $population->setIndividuals($individuals);
       $evolution->setPopulation($population);
-      $evolution->loadPopulation();
     }
 
     if (isset($args['step']) && is_numeric($args['step'])) {
       // Run as many generations as is requested.
       for ($i = 0; $i < $args['step']; ++$i) {
         $evolution->runGeneration();
+        $evolutionMapper->update($evolutionId, $evolution);
+        $populationMapper->insert($evolutionId, $evolution->getGeneration(), $evolution->getCurrentPopulation());
+        $individualMapper->insert($evolutionId, $evolution->getGeneration(), $evolution->getCurrentPopulation());
+        $statisticMapper->insert($evolutionId, $evolution->getGeneration(), $evolution->getCurrentPopulation()->getStatistics());
       }
     }
     else {
       // Just run one generation.
       $evolution->runGeneration();
+      $evolutionMapper->update($evolutionId, $evolution);
+      $populationMapper->insert($evolutionId, $evolution->getGeneration(), $evolution->getCurrentPopulation());
+      $individualMapper->insert($evolutionId, $evolution->getGeneration(), $evolution->getCurrentPopulation());
+      $statisticMapper->insert($evolutionId, $evolution->getGeneration(), $evolution->getCurrentPopulation()->getStatistics());
     }
 
     $output = '';
@@ -74,6 +91,9 @@ img {padding:0px;margin:0px;}';
 
     $populationDecorator = PopulationDecoratorFactory::getPopulationDecorator($evolution->getCurrentPopulation(), 'html');
     $output .= $populationDecorator->render() . PHP_EOL . '<br>';
+
+    $statisticsDecorator = new StatisticsDecoratorHtml($evolution->getCurrentPopulation()->getStatistics());
+    $output .= $statisticsDecorator->render();
 
     $steps = [
       1,
