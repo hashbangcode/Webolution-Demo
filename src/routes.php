@@ -22,6 +22,7 @@ $app->get('/color_evolution_database[/{step}]', '\Hashbangcode\WebolutionDemo\Co
 
 // Image.
 $app->get('/image_evolution', '\Hashbangcode\WebolutionDemo\Controller\ImageController:imageEvolution');
+$app->get('/image_evolution_database[/{step}]', '\Hashbangcode\WebolutionDemo\Controller\ImageDatabaseController:imageEvolution');
 
 // Dashboard
 $app->get('/color_dashboard_evolution[/{params:.*}]', '\Hashbangcode\WebolutionDemo\Controller\ColorDashboardController:colorDashboardEvolution');
