@@ -8,11 +8,14 @@ use Hashbangcode\WebolutionDemo\Controller\BaseController;
 use Slim\Http\Request;
 use Slim\Http\Response;
 use Hashbangcode\Webolution\Evolution\Evolution;
-use Hashbangcode\Webolution\Evolution\EvolutionStorage;
 use Hashbangcode\Webolution\Type\Color\Color;
 use Hashbangcode\Webolution\Evolution\Population\ColorPopulation;
 use Hashbangcode\Webolution\Evolution\Individual\ColorIndividual;
 use Hashbangcode\Webolution\Evolution\EvolutionManager;
+use Hashbangcode\WebolutionDemo\Model\Evolution as EvolutionModel;
+use Hashbangcode\WebolutionDemo\Model\Population as PopulationModel;
+use Hashbangcode\WebolutionDemo\Model\Individual as IndividualModel;
+use Hashbangcode\WebolutionDemo\Model\Statistics as StatisticsModel;
 
 /**
  * Class ColorController.
@@ -32,12 +35,10 @@ img {padding:0px;margin:0px;}';
 
     $evolutionId = 99;
 
-    $evolutionMapper = new \Hashbangcode\WebolutionDemo\Model\Evolution($this->container->database);
-    $populationMapper = new \Hashbangcode\WebolutionDemo\Model\Population($this->container->database);
-    $individualMapper = new \Hashbangcode\WebolutionDemo\Model\Individual($this->container->database);
-    $statisticMapper = new \Hashbangcode\WebolutionDemo\Model\Statistics($this->container->database);
-
-    ///$evolutionMapper->createDatabase();
+    $evolutionMapper = new EvolutionModel($this->container->database);
+    $populationMapper = new PopulationModel($this->container->database);
+    $individualMapper = new IndividualModel($this->container->database);
+    $statisticMapper = new StatisticsModel($this->container->database);
 
     $evolution = $evolutionMapper->load($evolutionId);
 
@@ -60,10 +61,10 @@ img {padding:0px;margin:0px;}';
       $evolution->setPopulation($population);
       $evolutionMapper->insert($evolutionId, $evolution);
     } else {
-      $individuals = $individualMapper->loadGeneration($evolutionId, $evolution);
       $population = $populationMapper->load($evolution->getGeneration(), $evolutionId);
-      $population->setIndividuals($individuals);
       $evolution->setPopulation($population);
+      $individualMapper->loadGeneration($evolutionId, $evolution);
+      $population->setStatistics($statisticMapper->load($evolutionId, $evolution->getGeneration()));
     }
 
     if (isset($args['step']) && is_numeric($args['step'])) {
@@ -72,7 +73,7 @@ img {padding:0px;margin:0px;}';
         $evolution->runGeneration();
         $evolutionMapper->update($evolutionId, $evolution);
         $populationMapper->insert($evolutionId, $evolution->getGeneration(), $evolution->getCurrentPopulation());
-        $individualMapper->insert($evolutionId, $evolution->getGeneration(), $evolution->getCurrentPopulation());
+        $individualMapper->insertFromPopulation($evolutionId, $evolution->getGeneration(), $evolution->getCurrentPopulation());
         $statisticMapper->insert($evolutionId, $evolution->getGeneration(), $evolution->getCurrentPopulation()->getStatistics());
       }
     }
@@ -81,7 +82,7 @@ img {padding:0px;margin:0px;}';
       $evolution->runGeneration();
       $evolutionMapper->update($evolutionId, $evolution);
       $populationMapper->insert($evolutionId, $evolution->getGeneration(), $evolution->getCurrentPopulation());
-      $individualMapper->insert($evolutionId, $evolution->getGeneration(), $evolution->getCurrentPopulation());
+      $individualMapper->insertFromPopulation($evolutionId, $evolution->getGeneration(), $evolution->getCurrentPopulation());
       $statisticMapper->insert($evolutionId, $evolution->getGeneration(), $evolution->getCurrentPopulation()->getStatistics());
     }
 
@@ -97,10 +98,10 @@ img {padding:0px;margin:0px;}';
 
     $steps = [
       1,
+      5,
       20,
       50,
       100,
-      500,
     ];
     $output .= '<ul>';
     foreach ($steps as $step) {

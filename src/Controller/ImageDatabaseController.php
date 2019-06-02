@@ -60,10 +60,10 @@ class ImageDatabaseController extends BaseController
       $evolution->setPopulation($population);
       $evolutionMapper->insert($evolutionId, $evolution);
     } else {
-      $individuals = $individualMapper->loadGeneration($evolutionId, $evolution);
       $population = $populationMapper->load($evolution->getGeneration(), $evolutionId);
-      $population->setIndividuals($individuals);
       $evolution->setPopulation($population);
+      $individualMapper->loadGeneration($evolutionId, $evolution);
+      $population->setStatistics($statisticMapper->load($evolutionId, $evolution->getGeneration()));
     }
 
     if (isset($args['step']) && is_numeric($args['step'])) {
@@ -72,7 +72,7 @@ class ImageDatabaseController extends BaseController
         $evolution->runGeneration();
         $evolutionMapper->update($evolutionId, $evolution);
         $populationMapper->insert($evolutionId, $evolution->getGeneration(), $evolution->getCurrentPopulation());
-        $individualMapper->insert($evolutionId, $evolution->getGeneration(), $evolution->getCurrentPopulation());
+        $individualMapper->insertFromPopulation($evolutionId, $evolution->getGeneration(), $evolution->getCurrentPopulation());
         $statisticMapper->insert($evolutionId, $evolution->getGeneration(), $evolution->getCurrentPopulation()->getStatistics());
       }
     }
@@ -81,7 +81,7 @@ class ImageDatabaseController extends BaseController
       $evolution->runGeneration();
       $evolutionMapper->update($evolutionId, $evolution);
       $populationMapper->insert($evolutionId, $evolution->getGeneration(), $evolution->getCurrentPopulation());
-      $individualMapper->insert($evolutionId, $evolution->getGeneration(), $evolution->getCurrentPopulation());
+      $individualMapper->insertFromPopulation($evolutionId, $evolution->getGeneration(), $evolution->getCurrentPopulation());
       $statisticMapper->insert($evolutionId, $evolution->getGeneration(), $evolution->getCurrentPopulation()->getStatistics());
     }
 

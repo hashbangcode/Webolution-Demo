@@ -71,13 +71,14 @@ CREATE TABLE "population" (
   {
     $tables = [
       'evolution',
-      'individuals',
-      'populations',
+      'individual',
+      'population',
+      'statistic'
     ];
 
     foreach ($tables as $table) {
       $sql = 'DELETE FROM ' . $table;
-      $this->database->exec($sql);
+      $result = $this->database->exec($sql);
     }
   }
 

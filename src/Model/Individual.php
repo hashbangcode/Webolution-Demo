@@ -13,7 +13,7 @@ class Individual extends BaseModel {
     $stmt = $this->database->prepare($sql);
     $stmt->execute(
       [
-        'evolution_id' => $id,
+        'individual_id' => $id,
       ]
     );
     $data = $stmt->fetch(\PDO::FETCH_ASSOC);
@@ -57,13 +57,16 @@ class Individual extends BaseModel {
     $individualData = $individualStatement->fetchAll(\PDO::FETCH_ASSOC);
     foreach ($individualData as $key => $data) {
       $individual = unserialize($data['individual']);
-      $individuals[$data['individual_id']] = $individual;
+      $individuals[$data['id']] = $individual;
     }
 
     $evolution->getCurrentPopulation()->setIndividuals($individuals);
   }
 
-  public function insertFromPopulation($evolutionId, $population)
+  /**
+   *
+   */
+  public function insertFromPopulation($evolutionId, $populationId, $population)
   {
     $individuals = [];
 
@@ -77,7 +80,7 @@ class Individual extends BaseModel {
 
       $query->execute(
         [
-          'population_id' => $this->getGeneration(),
+          'population_id' => $populationId,
           'evolution_id' => $evolutionId,
           'individual' => $serializedIndividual,
         ]

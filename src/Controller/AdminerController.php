@@ -23,7 +23,6 @@ class AdminerController extends BaseController
 
 
   public function clearDatabase(Request $request, Response $response, $args) {
-
     $evolutionMapper = new \Hashbangcode\WebolutionDemo\Model\Evolution($this->container->database);
     $evolutionMapper->createDatabase();
 

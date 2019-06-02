@@ -100,4 +100,60 @@ class Evolution extends BaseModel {
     $query->execute($data);
   }
 
+  /**
+   * Delete the evolution model from the database.
+   *
+   * @param int $id
+   *   The evolution id.
+   */
+  public function delete($id) {
+    $sql = "DELETE FROM evolution WHERE id = :id";
+    $query = $this->database->prepare($sql);
+    $data = [
+      'id' => $id,
+    ];
+
+    if (!$query) {
+      print_r($this->database->errorInfo());
+    }
+
+    $query->execute($data);
+
+    $sql = "DELETE FROM population WHERE evolution_id = :id";
+    $query = $this->database->prepare($sql);
+    $data = [
+      'id' => $id,
+    ];
+
+    if (!$query) {
+      print_r($this->database->errorInfo());
+    }
+
+    $query->execute($data);
+
+    $sql = "DELETE FROM population WHERE evolution_id = :id";
+    $query = $this->database->prepare($sql);
+    $data = [
+      'id' => $id,
+    ];
+
+    if (!$query) {
+      print_r($this->database->errorInfo());
+    }
+
+    $query->execute($data);
+
+    $sql = "DELETE FROM individual WHERE evolution_id = :id";
+    $query = $this->database->prepare($sql);
+    $data = [
+      'id' => $id,
+    ];
+
+    if (!$query) {
+      print_r($this->database->errorInfo());
+    }
+
+    $query->execute($data);
+  }
+
 }
