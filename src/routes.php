@@ -25,4 +25,5 @@ $app->get('/image_evolution', '\Hashbangcode\WebolutionDemo\Controller\ImageCont
 $app->get('/image_evolution_database[/{step}]', '\Hashbangcode\WebolutionDemo\Controller\ImageDatabaseController:imageEvolution');
 
 // Dashboard
-$app->get('/color_dashboard_evolution[/{params:.*}]', '\Hashbangcode\WebolutionDemo\Controller\ColorDashboardController:colorDashboardEvolution');
+$app->map(['get', 'post'], '/color_dashboard_evolution[/{params:.*}]', '\Hashbangcode\WebolutionDemo\Controller\ColorDashboardController:dashboardEvolution')->setName('color_dashboard_evolution');
+$app->map(['get', 'post'], '/image_dashboard_evolution[/{params:.*}]', '\Hashbangcode\WebolutionDemo\Controller\ImageDashboardController:dashboardEvolution')->setName('image_dashboard_evolution');

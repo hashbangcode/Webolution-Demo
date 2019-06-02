@@ -16,21 +16,19 @@ use Hashbangcode\Webolution\Evolution\Population\Decorators\PopulationDecoratorF
 use Hashbangcode\Webolution\Evolution\Statistics\Decorators\StatisticsDecoratorHtml;
 use Hashbangcode\WebolutionDemo\Model\Evolution as EvolutionModel;
 
-/**
- * Class ColorDashboardController.
- *
- * @package Hashbangcode\WebolutionDemo\Controller
- */
-class ColorDashboardController extends BaseDashboardController
+class ImageDashboardController extends BaseDashboardController
 {
 
-  const DASHBOARD_TYPE = 'Color';
+  const NUMBER_OF_INDIVIDUALS = 30;
 
-  const DASHBOARD_TITLE = 'Color Dashboard';
+  const DASHBOARD_TYPE = 'Image';
 
-  const DASHBOARD_PATH = '/color_dashboard_evolution';
+  const DASHBOARD_TITLE = 'Image Dashboard';
 
-  const DASHBOARD_EVOLUTION_ID = 101;
+  const DASHBOARD_PATH = '/image_dashboard_evolution';
 
-  const DASHBOARD_ROUTE_NAME = 'color_dashboard_evolution';
+  const DASHBOARD_EVOLUTION_ID = 102;
+
+  const DASHBOARD_ROUTE_NAME = 'image_dashboard_evolution';
+
 }

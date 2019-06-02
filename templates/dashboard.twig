@@ -13,18 +13,29 @@
                 width: auto;
             }
 
+            #population-form {
+                border-color: lightgray;
+                border-style: solid;
+                height: auto;
+                width: 75%;
+                float: left;
+                clear: both;
+            }
+
             #statistics {
                 border-color: lightgray;
                 border-style: solid;
                 height: auto;
-                width: auto;
+                width: 24%;
+                float: left;
             }
 
             #statistics-graphs {
                 border-color: lightgray;
                 border-style: solid;
                 height: auto;
-                width: auto;
+                width: 24%;
+                float: left;
             }
 
             #past-generations {
@@ -32,6 +43,7 @@
                 border-style: solid;
                 height: auto;
                 width: auto;
+                clear: both;
             }
 
             #operations {
@@ -39,6 +51,18 @@
                 border-style: solid;
                 height: auto;
                 width: auto;
+                clear: both;
+            }
+
+            .individual {
+                float:left;
+                width: 50px;
+                height: 75px;
+            }
+            .individual-pick {
+                float:left;
+                padding: 0;
+                margin: 0;
             }
 
             span {
@@ -46,7 +70,10 @@
                 height: 30px;
                 display: inline-block;
                 padding: 0px;
-                margin: -2px;
+                margin: 0;
+                border-color: lightgray;
+                border-style: solid;
+                float:left;
             }
 
             a, a:link, a:visited, a:hover, a:active {
@@ -66,32 +93,41 @@
         <p><a href="/">Home</a></p>
 
         <div id="current-generation">
-            {{ current_generation|raw }}
+            <p>Generation: {{ current_generation }}</p>
+        </div>
+
+        <div id="population-form">
+            <form method="post" action="{{ path_for(route_name) }}">
+                {% for individual in population_form_items %}
+                    <div class="individual">
+                    {{ individual.render|raw }}
+                    {{ individual.button|raw }}
+                    </div>
+                {% endfor %}
+            </form>
         </div>
 
         <div id="statistics">
+            <h2>Statistics</h2>
             {{ statistics|raw }}
         </div>
 
         <div id="statistics-graphs">
+            <h2>Graph</h2>
             {{ graphs }}
         </div>
 
         <div id="past-generations">
-            {{ past_generations }}
+            <h2>Past Generations</h2>
+            {% for generation in past_generations %}
+                {{ generation }}
+            {% endfor %}
         </div>
 
     <div id="operations">
 
-
-        <ul>
-        {% for step in operations.steps %}
-            <li><a href="/color_dashboard_evolution/step/{{ step }}">{{ step }}</a></li>
-        {% endfor %}
-        </ul>
-
+        <p><a href="/color_dashboard_evolution/reset">Reset</a></p>
         <p><a href="/color_dashboard_evolution/clear_database">Clear Database</a></p>
-
     </div>
 
     </body>
