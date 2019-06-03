@@ -56,9 +56,13 @@
 
             .individual {
                 float:left;
-                width: 50px;
-                height: 75px;
+                width: 150px;
+                height: 150px;
             }
+            .individual img {
+                float: left;
+            }
+
             .individual-pick {
                 float:left;
                 padding: 0;
@@ -126,8 +130,8 @@
 
     <div id="operations">
 
-        <p><a href="/color_dashboard_evolution/reset">Reset</a></p>
-        <p><a href="/color_dashboard_evolution/clear_database">Clear Database</a></p>
+        <p><a href="/{{ route_name }}/reset">Reset</a></p>
+        <p><a href="/{{ route_name }}/clear_database">Clear Database</a></p>
     </div>
 
     </body>

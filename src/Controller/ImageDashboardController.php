@@ -3,6 +3,7 @@
 namespace Hashbangcode\WebolutionDemo\Controller;
 
 use Hashbangcode\Webolution\Evolution\Individual\Decorators\IndividualDecoratorFactory;
+use Hashbangcode\Webolution\Evolution\Individual\ImageIndividual;
 use Hashbangcode\Webolution\Evolution\Individual\Individual;
 use Hashbangcode\WebolutionDemo\Controller\BaseController;
 use Hashbangcode\WebolutionDemo\DashboardManager;
@@ -19,7 +20,7 @@ use Hashbangcode\WebolutionDemo\Model\Evolution as EvolutionModel;
 class ImageDashboardController extends BaseDashboardController
 {
 
-  const NUMBER_OF_INDIVIDUALS = 30;
+  const NUMBER_OF_INDIVIDUALS = 100;
 
   const DASHBOARD_TYPE = 'Image';
 
@@ -30,5 +31,15 @@ class ImageDashboardController extends BaseDashboardController
   const DASHBOARD_EVOLUTION_ID = 102;
 
   const DASHBOARD_ROUTE_NAME = 'image_dashboard_evolution';
+
+  public function generateIndividuals() {
+    $individuals = [];
+    for ($i = 0; $i < static::NUMBER_OF_INDIVIDUALS; $i++) {
+      $image = ImageIndividual::generateFromImageSize(25, 25);
+      $image->getObject()->setPixel(24, 12, 1);
+      $individuals[] = $image;
+    }
+    return $individuals;
+  }
 
 }

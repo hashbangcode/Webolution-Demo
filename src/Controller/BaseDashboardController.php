@@ -67,7 +67,8 @@ class BaseDashboardController extends BaseController
     $evolution = $dashboardManager->loadEvolution(static::DASHBOARD_EVOLUTION_ID, static::NUMBER_OF_INDIVIDUALS);
 
     if ($evolution->getGeneration() == 0) {
-      $dashboardManager->setupEvolution(static::DASHBOARD_EVOLUTION_ID, $evolution, static::NUMBER_OF_INDIVIDUALS, static::DASHBOARD_TYPE);
+      $individuals = $this->generateIndividuals();
+      $dashboardManager->setupEvolution(static::DASHBOARD_EVOLUTION_ID, $evolution, $individuals, static::DASHBOARD_TYPE);
     } else {
       $dashboardManager->loadPopulation(static::DASHBOARD_EVOLUTION_ID, $evolution);
     }

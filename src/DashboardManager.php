@@ -39,15 +39,13 @@ class DashboardManager {
     return $evolution;
   }
 
-  public function setupEvolution($evolutionId, $evolution, $numberOfIndividuals, $type) {
+  public function setupEvolution($evolutionId, $evolution, $individuals, $type) {
     $populationType = '\\Hashbangcode\\Webolution\\Evolution\\Population\\' . $type . 'Population';
     $population = new $populationType();
     $population->setDefaultRenderType('html');
 
-    $individualType = '\\Hashbangcode\\Webolution\\Evolution\\Individual\\' . $type . 'Individual';
-
-    for ($i = 0; $i < $numberOfIndividuals; $i++) {
-      $population->addIndividual();
+    foreach ($individuals as $individual) {
+      $population->addIndividual($individual);
     }
 
     $evolution->setPopulation($population);

@@ -4,6 +4,7 @@ namespace Hashbangcode\WebolutionDemo\Controller;
 
 use Hashbangcode\Webolution\Evolution\Individual\Decorators\IndividualDecoratorFactory;
 use Hashbangcode\Webolution\Evolution\Individual\Individual;
+use Hashbangcode\Webolution\Type\Color\Color;
 use Hashbangcode\WebolutionDemo\Controller\BaseController;
 use Hashbangcode\WebolutionDemo\DashboardManager;
 use Slim\Http\Request;
@@ -33,4 +34,13 @@ class ColorDashboardController extends BaseDashboardController
   const DASHBOARD_EVOLUTION_ID = 101;
 
   const DASHBOARD_ROUTE_NAME = 'color_dashboard_evolution';
+
+  public function generateIndividuals() {
+    $individuals = [];
+    for ($i = 0; $i < static::NUMBER_OF_INDIVIDUALS; $i++) {
+      $color = ColorIndividual::generateRandomColor();
+      $individuals[] = $color;
+    }
+    return $individuals;
+  }
 }
