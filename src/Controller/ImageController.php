@@ -23,7 +23,7 @@ class ImageController extends BaseController
   {
     $styles = "img{border:1px solid black;}";
 
-    $this->logger->info("Image Eovolution '/image_evolution' route");
+    $this->logger->info("Image Evolution '/image_evolution' route");
 
     $title = 'Image Evolution';
 
@@ -31,7 +31,6 @@ class ImageController extends BaseController
     $population = new ImagePopulation();
     $population->setPopulationFitnessType('height');
     $population->setDefaultRenderType('html');
-    $population->setPopulationFitnessType('hue');
 
     // Add individuals to the population.
     for ($i = 0; $i < 10; $i++) {
