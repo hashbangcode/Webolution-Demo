@@ -55,9 +55,10 @@ CREATE TABLE "individual" (
 
 DROP TABLE IF EXISTS "population";
 CREATE TABLE "population" (
-  "id" integer NOT NULL PRIMARY KEY,
+  "id" integer NOT NULL,
   "evolution_id" integer NOT NULL,
-  "population_type" text NOT NULL
+  "population_type" text NOT NULL,
+  PRIMARY KEY ("id", "evolution_id")
 );';
 
     $this->database->exec($sql);
