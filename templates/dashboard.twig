@@ -6,6 +6,7 @@
         <title>Webolution</title>
         <link href="/css/styles.css" rel="stylesheet" type="text/css">
         <style>
+
             #current-generation {
                 border-color: lightgray;
                 border-style: solid;
@@ -56,10 +57,14 @@
 
             .individual {
                 float:left;
-                width: 150px;
-                height: 150px;
+
             }
+
             .individual img {
+                float: left;
+            }
+
+            .individual iframe {
                 float: left;
             }
 
@@ -132,6 +137,7 @@
 
         <p><a href="/{{ route_name }}/reset">Reset</a></p>
         <p><a href="/{{ route_name }}/clear_database">Clear Database</a></p>
+        <p><a href="/{{ route_name }}/run">Run evolution for a bit</a></p>
     </div>
 
     </body>
