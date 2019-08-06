@@ -36,6 +36,8 @@ class BaseDashboardController extends BaseController
 
   const DASHBOARD_ROUTE_NAME = 'color_dashboard_evolution';
 
+  const DASHBOARD_RENDER_TYPE = 'html';
+
   public function dashboardEvolution(Request $request, Response $response, $args)
   {
     $action = false;
@@ -73,6 +75,15 @@ class BaseDashboardController extends BaseController
       $dashboardManager->loadPopulation(static::DASHBOARD_EVOLUTION_ID, $evolution);
     }
 
+    if ($action == 'run') {
+      for ($i = 0; $i < 100; ++$i) {
+        $evolution->runGeneration(false);
+        $dashboardManager->saveEvolution(static::DASHBOARD_EVOLUTION_ID, $evolution);
+      }
+
+      return $response->withStatus(302)->withHeader('Location', static::DASHBOARD_PATH);
+    }
+
     $title = static::DASHBOARD_TITLE;
 
     if ($request->isPost()) {
@@ -101,7 +112,7 @@ class BaseDashboardController extends BaseController
 
     foreach ($currentPopulation->getIndividuals() as $id => $individual) {
       /* @var $individual Individual */
-      $decorator = IndividualDecoratorFactory::getIndividualDecorator($individual, 'html');
+      $decorator = IndividualDecoratorFactory::getIndividualDecorator($individual, static::DASHBOARD_RENDER_TYPE);
       $populationFormItems[] = [
         'render' => $decorator->render(),
         'button' => '<input class="individual-pick" type="submit" value="Pick" name="individual[' . $id . ']" />'

@@ -35,6 +35,8 @@ class ColorDashboardController extends BaseDashboardController
 
   const DASHBOARD_ROUTE_NAME = 'color_dashboard_evolution';
 
+  const DASHBOARD_RENDER_TYPE = 'html';
+
   public function generateIndividuals() {
     $individuals = [];
     for ($i = 0; $i < static::NUMBER_OF_INDIVIDUALS; $i++) {
