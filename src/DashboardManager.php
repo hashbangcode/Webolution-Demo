@@ -34,7 +34,7 @@ class DashboardManager {
   public function loadEvolution($evolutionId, $numberOfIndividuals) {
     $evolution = $this->evolutionMapper->load($evolutionId);
     $evolution->setIndividualsPerGeneration($numberOfIndividuals);
-    $evolution->setGlobalMutationAmount(50);
+    $evolution->setGlobalMutationAmount(1);
     //$evolution->setReplicationType(Evolution::REPLICATION_TYPE_CLONE);
     return $evolution;
   }
