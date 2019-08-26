@@ -31,6 +31,11 @@ class DashboardManager {
     $this->statisticMapper = new StatisticsModel($this->database);
   }
 
+  public function loadIndividual($individualId) {
+    $individual = $this->individualMapper->load($individualId);
+    return $individual;
+  }
+
   public function loadEvolution($evolutionId, $numberOfIndividuals) {
     $evolution = $this->evolutionMapper->load($evolutionId);
     $evolution->setIndividualsPerGeneration($numberOfIndividuals);

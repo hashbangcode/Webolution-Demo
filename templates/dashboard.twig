@@ -130,13 +130,17 @@
 
         <div id="population-form">
             <form method="post" action="{{ path_for(route_name) }}">
+                <div>
+                    <input id="evolution-run" type="submit" value="Run" name="run" />
+                </div>
                 {% for individual in population_form_items %}
                     <div class="individualWrapper">
                         <div class="individual">
                             {{ individual.render|raw }}
                         </div>
                         <div class="individualOptions">
-                            {{ individual.button|raw }}
+                            {{ individual.download_button|raw }}
+                            {{ individual.pick_checkbox|raw }}
                             <a href="/individual/{{ individual.id }}" target="_blank">View</a>
                         </div>
                     </div>

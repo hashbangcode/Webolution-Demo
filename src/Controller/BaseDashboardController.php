@@ -90,13 +90,37 @@ class BaseDashboardController extends BaseController
 
       $data = $request->getParsedBody();
 
-      $arrayKeys = array_keys($data['individual']);
-      $luckyIndividualId = array_pop($arrayKeys);
-      unset($arrayKeys);
+      if (isset($data['individual-download'])) {
+        $downloadId = array_pop(array_keys($data['individual-download']));
+        $individual = $dashboardManager->loadIndividual($downloadId);
 
-      $newPopulation = $evolution->getCurrentPopulation()->getIndividuals();
-      if (key_exists($luckyIndividualId, $newPopulation)) {
-        $dashboardManager->selectForIndividual($luckyIndividualId, $evolution);
+        $decorator = IndividualDecoratorFactory::getIndividualDecorator($individual, 'html');
+        $html = $decorator->render();
+
+        $filename = "individual" . $downloadId . ".html";
+
+        header('Content-Type: text/html; charset=utf-8');
+        header('Content-Disposition: attachment; filename="' . $filename . '"');
+        $stream = fopen('data://text/html;base64,' . base64_encode($html),'r');
+        echo stream_get_contents($stream);
+
+        return '';
+      }
+      else {
+
+        $pickedIndividuals = array_keys($data['individual-pick']);
+
+        $newPopulation = [];
+        $oldPopulation = $evolution->getCurrentPopulation()->getIndividuals();
+        $oldPopulationKeys = array_keys($oldPopulation);
+
+        foreach ($pickedIndividuals as $individual) {
+          if (in_array($individual, $oldPopulationKeys)) {
+            $newPopulation[$individual] = $oldPopulation[$individual];
+          }
+        }
+
+        $evolution->getCurrentPopulation()->setIndividuals($newPopulation);
         $evolution->runGeneration(false);
         $dashboardManager->saveEvolution(static::DASHBOARD_EVOLUTION_ID, $evolution);
       }
@@ -115,7 +139,8 @@ class BaseDashboardController extends BaseController
       $decorator = IndividualDecoratorFactory::getIndividualDecorator($individual, static::DASHBOARD_RENDER_TYPE);
       $populationFormItems[] = [
         'render' => $decorator->render(),
-        'button' => '<input class="individual-pick" type="submit" value="Pick" name="individual[' . $id . ']" />',
+        'download_button' => '<input class="individual-download" type="submit" value="Download" name="individual-download[' . $id . ']" />',
+        'pick_checkbox' => '<input class="individual-pick" type="checkbox" checked="checked" name="individual-pick[' . $id . ']" /><label for="individual-pick[' . $id . ']">Chosen</label>',
         'id' => $id,
       ];
     }
