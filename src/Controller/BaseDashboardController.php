@@ -115,7 +115,8 @@ class BaseDashboardController extends BaseController
       $decorator = IndividualDecoratorFactory::getIndividualDecorator($individual, static::DASHBOARD_RENDER_TYPE);
       $populationFormItems[] = [
         'render' => $decorator->render(),
-        'button' => '<input class="individual-pick" type="submit" value="Pick" name="individual[' . $id . ']" />'
+        'button' => '<input class="individual-pick" type="submit" value="Pick" name="individual[' . $id . ']" />',
+        'id' => $id,
       ];
     }
 

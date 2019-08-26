@@ -55,9 +55,15 @@
                 clear: both;
             }
 
-            .individual {
-                float:left;
+            .individualWrapper {
+                float: left;
+            }
 
+            .individual {
+                float: left;
+                overflow: hidden;
+                height: 250px;
+                width: 250px;
             }
 
             .individual img {
@@ -68,7 +74,7 @@
                 float: left;
             }
 
-            .individual-pick {
+            .individualOptions {
                 float:left;
                 padding: 0;
                 margin: 0;
@@ -95,6 +101,23 @@
                 margin: 0px;
                 border: 1px solid black;
             }
+
+            iframe {
+                -ms-transform:scale(0.50);
+                -moz-transform:scale(0.50);
+                -o-transform: scale(0.50);
+                -webkit-transform: scale(0.50);
+                transform:scale(0.65);
+                border:1px solid black;
+            }
+
+            iframe {
+                position: relative;
+                top: -67px;
+                left: -66px;
+                height: 380px;
+                width: 380px;
+            }
         </style>
     </head>
     <body>
@@ -108,9 +131,14 @@
         <div id="population-form">
             <form method="post" action="{{ path_for(route_name) }}">
                 {% for individual in population_form_items %}
-                    <div class="individual">
-                    {{ individual.render|raw }}
-                    {{ individual.button|raw }}
+                    <div class="individualWrapper">
+                        <div class="individual">
+                            {{ individual.render|raw }}
+                        </div>
+                        <div class="individualOptions">
+                            {{ individual.button|raw }}
+                            <a href="/individual/{{ individual.id }}" target="_blank">View</a>
+                        </div>
                     </div>
                 {% endfor %}
             </form>

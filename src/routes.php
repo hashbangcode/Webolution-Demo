@@ -34,3 +34,5 @@ $app->get('/page_evolution', '\Hashbangcode\WebolutionDemo\Controller\PageContro
 $app->map(['get', 'post'], '/color_dashboard_evolution[/{params:.*}]', '\Hashbangcode\WebolutionDemo\Controller\ColorDashboardController:dashboardEvolution')->setName('color_dashboard_evolution');
 $app->map(['get', 'post'], '/image_dashboard_evolution[/{params:.*}]', '\Hashbangcode\WebolutionDemo\Controller\ImageDashboardController:dashboardEvolution')->setName('image_dashboard_evolution');
 $app->map(['get', 'post'], '/page_dashboard_evolution[/{params:.*}]', '\Hashbangcode\WebolutionDemo\Controller\PageDashboardController:dashboardEvolution')->setName('page_dashboard_evolution');
+
+$app->get('/individual/{individual}', '\Hashbangcode\WebolutionDemo\Controller\IndividualController:viewIndividual')->setName('individual');
