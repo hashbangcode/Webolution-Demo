@@ -2,11 +2,10 @@
 
 namespace Hashbangcode\WebolutionDemo\Controller;
 
-use Hashbangcode\Webolution\Evolution\Individual\Decorators\IndividualDecoratorFactory;
+use Hashbangcode\Webolution\IndividualDecoratorFactory;
 use Hashbangcode\WebolutionDemo\Controller\BaseController;
 use Slim\Http\Request;
 use Slim\Http\Response;
-use Hashbangcode\Webolution\Evolution\EvolutionStorage;
 use Hashbangcode\WebolutionDemo\Model\Individual as IndividualModel;
 
 class IndividualController extends BaseController

@@ -2,11 +2,9 @@
 
 namespace Hashbangcode\WebolutionDemo\Controller;
 
-use Hashbangcode\Webolution\Evolution\Individual\TextIndividual;
-use Hashbangcode\Webolution\Evolution\Population\ColorPopulation;
-use Hashbangcode\Webolution\Evolution\Individual\ColorIndividual;
-use Hashbangcode\Webolution\Evolution\EvolutionManager;
-use Hashbangcode\Webolution\Evolution\Population\TextPopulation;
+use Hashbangcode\Webolution\EvolutionManager;
+use Hashbangcode\Webolution\Type\Text\TextIndividual;
+use Hashbangcode\Webolution\Type\Text\TextPopulation;
 
 /**
  * Class TextController.

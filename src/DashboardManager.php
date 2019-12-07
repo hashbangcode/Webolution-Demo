@@ -2,8 +2,8 @@
 
 namespace Hashbangcode\WebolutionDemo;
 
-use Hashbangcode\Webolution\Evolution\Individual\ColorIndividual;
-use Hashbangcode\Webolution\Evolution\Population\ColorPopulation;
+use Hashbangcode\Webolution\Type\Color\ColorIndividual;
+use Hashbangcode\Webolution\Type\Color\ColorPopulation;
 use Hashbangcode\WebolutionDemo\Model\Evolution as EvolutionModel;
 use Hashbangcode\WebolutionDemo\Model\Population as PopulationModel;
 use Hashbangcode\WebolutionDemo\Model\Individual as IndividualModel;
@@ -45,7 +45,7 @@ class DashboardManager {
   }
 
   public function setupEvolution($evolutionId, $evolution, $individuals, $type) {
-    $populationType = '\\Hashbangcode\\Webolution\\Evolution\\Population\\' . $type . 'Population';
+    $populationType = '\\Hashbangcode\\Webolution\\Type\\' . $type . '\\' . $type . 'Population';
     $population = new $populationType();
     $population->setDefaultRenderType('html');
 

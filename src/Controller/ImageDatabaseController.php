@@ -2,19 +2,18 @@
 
 namespace Hashbangcode\WebolutionDemo\Controller;
 
-use Hashbangcode\Webolution\Evolution\Individual\ImageIndividual;
-use Hashbangcode\Webolution\Evolution\Population\Decorators\PopulationDecoratorFactory;
-use Hashbangcode\Webolution\Evolution\Population\ImagePopulation;
-use Hashbangcode\Webolution\Evolution\Statistics\Decorators\StatisticsDecoratorHtml;
+use Hashbangcode\Webolution\Type\Image\ImageIndividual;
+use Hashbangcode\Webolution\PopulationDecoratorFactory;
+use Hashbangcode\Webolution\Type\Image\ImagePopulation;
+use Hashbangcode\Webolution\Statistics\Decorator\StatisticsDecoratorHtml;
 use Hashbangcode\WebolutionDemo\Controller\BaseController;
 use Slim\Http\Request;
 use Slim\Http\Response;
-use Hashbangcode\Webolution\Evolution\Evolution;
-use Hashbangcode\Webolution\Evolution\EvolutionStorage;
+use Hashbangcode\Webolution\Evolution;
 use Hashbangcode\Webolution\Type\Color\Color;
-use Hashbangcode\Webolution\Evolution\Population\ColorPopulation;
-use Hashbangcode\Webolution\Evolution\Individual\ColorIndividual;
-use Hashbangcode\Webolution\Evolution\EvolutionManager;
+use Hashbangcode\Webolution\Type\Color\ColorPopulation;
+use Hashbangcode\Webolution\Type\Color\ColorIndividual;
+use Hashbangcode\Webolution\EvolutionManager;
 
 /**
  * Class ColorController.
@@ -100,7 +99,6 @@ class ImageDatabaseController extends BaseController
       20,
       50,
       100,
-      ///500,
     ];
     $output .= '<ul>';
     foreach ($steps as $step) {

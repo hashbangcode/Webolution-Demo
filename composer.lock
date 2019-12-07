@@ -71,6 +71,7 @@
             ],
             "description": "Promoting the interoperability of container objects (DIC, SL, etc.)",
             "homepage": "https://github.com/container-interop/container-interop",
+            "abandoned": "psr/container",
             "time": "2017-02-14T19:40:03+00:00"
         },
         {
@@ -79,21 +80,21 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/philipnorton42/webolution.git",
-                "reference": "9631be880ca443e4f4386b5d4629d577ce0361a0"
+                "reference": "4aae9dce8a2c05f6fe7bbbcd34eca0764e0d8096"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/philipnorton42/webolution/zipball/9631be880ca443e4f4386b5d4629d577ce0361a0",
-                "reference": "9631be880ca443e4f4386b5d4629d577ce0361a0",
+                "url": "https://api.github.com/repos/philipnorton42/webolution/zipball/4aae9dce8a2c05f6fe7bbbcd34eca0764e0d8096",
+                "reference": "4aae9dce8a2c05f6fe7bbbcd34eca0764e0d8096",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1"
             },
             "require-dev": {
-                "phpdocumentor/phpdocumentor": "2.*",
                 "phpspec/prophecy": "^1.7",
-                "phpunit/phpunit": ">=4.8 < 6.0",
+                "phpstan/phpstan": "^0.11.19",
+                "phpunit/phpunit": "^6.0",
                 "squizlabs/php_codesniffer": "^2.8"
             },
             "type": "library",
@@ -116,7 +117,7 @@
             "keywords": [
                 "webolution"
             ],
-            "time": "2019-08-24T22:08:07+00:00"
+            "time": "2019-12-06T13:15:09+00:00"
         },
         {
             "name": "monolog/monolog",

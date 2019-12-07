@@ -2,7 +2,7 @@
 
 namespace Hashbangcode\WebolutionDemo\Model;
 
-use Hashbangcode\Webolution\Evolution\Statistics\Statistics as WebolutionStatistics;
+use Hashbangcode\Webolution\Statistics\Statistics as WebolutionStatistics;
 
 class Statistics extends BaseModel {
 

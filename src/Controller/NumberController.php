@@ -3,11 +3,11 @@
 namespace Hashbangcode\WebolutionDemo\Controller;
 
 use Hashbangcode\WebolutionDemo\Controller\BaseController;
-use Hashbangcode\Webolution\Evolution\EvolutionManager;
+use Hashbangcode\Webolution\EvolutionManager;
 use Slim\Http\Request;
 use Slim\Http\Response;
-use Hashbangcode\Webolution\Evolution\Population\NumberPopulation;
-use Hashbangcode\Webolution\Evolution\Individual\NumberIndividual;
+use Hashbangcode\Webolution\Type\Number\NumberPopulation;
+use Hashbangcode\Webolution\Type\Number\NumberIndividual;
 
 /**
  * Class NumberController.

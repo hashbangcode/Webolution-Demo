@@ -2,7 +2,7 @@
 
 namespace Hashbangcode\WebolutionDemo\Model;
 
-use Hashbangcode\Webolution\Evolution\Evolution as WebolutionEvolution;
+use Hashbangcode\Webolution\Evolution as WebolutionEvolution;
 
 /**
  * Class Evolution.
@@ -29,7 +29,7 @@ class Evolution extends BaseModel {
    * @param int $id
    *   The evolution id.
    *
-   * @return \Hashbangcode\Webolution\Evolution\Evolution
+   * @return \Hashbangcode\Webolution\Evolution
    *   The evolution object.
    */
   public function load($id)
@@ -60,7 +60,7 @@ class Evolution extends BaseModel {
   /**
    * Create the evolution.
    *
-   * @param \Hashbangcode\Webolution\Evolution\Evolution $evolution
+   * @param \Hashbangcode\Webolution\Evolution $evolution
    *   The evolution ID to create.
    *
    * @return int
@@ -81,7 +81,7 @@ class Evolution extends BaseModel {
   /**
    * Create the evolution.
    *
-   * @param \Hashbangcode\Webolution\Evolution\Evolution $evolution_id
+   * @param \Hashbangcode\Webolution\Evolution $evolution_id
    *   The evolution ID to create.
    */
   public function update($id, WebolutionEvolution $evolution)

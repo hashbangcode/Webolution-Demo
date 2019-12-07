@@ -2,8 +2,8 @@
 
 namespace Hashbangcode\WebolutionDemo\Model;
 
-use Hashbangcode\Webolution\Evolution\Individual\IndividualInterface;
-use Hashbangcode\Webolution\Evolution\Evolution as WebolutionEvolution;
+use Hashbangcode\Webolution\IndividualInterface;
+use Hashbangcode\Webolution\Evolution as WebolutionEvolution;
 
 class Individual extends BaseModel {
 

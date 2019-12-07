@@ -5,12 +5,11 @@ namespace Hashbangcode\WebolutionDemo\Controller;
 use Hashbangcode\WebolutionDemo\Controller\BaseController;
 use Slim\Http\Request;
 use Slim\Http\Response;
-use Hashbangcode\Webolution\Evolution\Evolution;
-use Hashbangcode\Webolution\Evolution\EvolutionStorage;
+use Hashbangcode\Webolution\Evolution;
 use Hashbangcode\Webolution\Type\Color\Color;
-use Hashbangcode\Webolution\Evolution\Population\ColorPopulation;
-use Hashbangcode\Webolution\Evolution\Individual\ColorIndividual;
-use Hashbangcode\Webolution\Evolution\EvolutionManager;
+use Hashbangcode\Webolution\Type\Color\ColorPopulation;
+use Hashbangcode\Webolution\Type\Color\ColorIndividual;
+use Hashbangcode\Webolution\EvolutionManager;
 
 /**
  * Class ColorController.

@@ -2,14 +2,12 @@
 
 namespace Hashbangcode\WebolutionDemo\Controller;
 
-use Hashbangcode\WebolutionDemo\Controller\BaseController;
 use Slim\Http\Request;
 use Slim\Http\Response;
-use Hashbangcode\Webolution\Evolution\Evolution;
-use Hashbangcode\Webolution\Evolution\EvolutionStorage;
-use Hashbangcode\Webolution\Evolution\Population\ImagePopulation;
-use Hashbangcode\Webolution\Evolution\Individual\ImageIndividual;
-use Hashbangcode\Webolution\Evolution\EvolutionManager;
+use Hashbangcode\Webolution\Evolution;
+use Hashbangcode\Webolution\Type\Image\ImagePopulation;
+use Hashbangcode\Webolution\Type\Image\ImageIndividual;
+use Hashbangcode\Webolution\EvolutionManager;
 
 /**
  * Class ImageController.

@@ -5,7 +5,6 @@ namespace Hashbangcode\WebolutionDemo\Controller;
 use Hashbangcode\WebolutionDemo\Controller\BaseController;
 use Slim\Http\Request;
 use Slim\Http\Response;
-use Hashbangcode\Webolution\Evolution\EvolutionStorage;
 
 class AdminerController extends BaseController
 {

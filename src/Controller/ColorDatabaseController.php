@@ -2,16 +2,16 @@
 
 namespace Hashbangcode\WebolutionDemo\Controller;
 
-use Hashbangcode\Webolution\Evolution\Population\Decorators\PopulationDecoratorFactory;
-use Hashbangcode\Webolution\Evolution\Statistics\Decorators\StatisticsDecoratorHtml;
+use Hashbangcode\Webolution\PopulationDecoratorFactory;
+use Hashbangcode\Webolution\Statistics\Decorator\StatisticsDecoratorHtml;
 use Hashbangcode\WebolutionDemo\Controller\BaseController;
 use Slim\Http\Request;
 use Slim\Http\Response;
-use Hashbangcode\Webolution\Evolution\Evolution;
+use Hashbangcode\Webolution\Evolution;
 use Hashbangcode\Webolution\Type\Color\Color;
-use Hashbangcode\Webolution\Evolution\Population\ColorPopulation;
-use Hashbangcode\Webolution\Evolution\Individual\ColorIndividual;
-use Hashbangcode\Webolution\Evolution\EvolutionManager;
+use Hashbangcode\Webolution\Type\Color\ColorPopulation;
+use Hashbangcode\Webolution\Type\Color\ColorIndividual;
+use Hashbangcode\Webolution\EvolutionManager;
 use Hashbangcode\WebolutionDemo\Model\Evolution as EvolutionModel;
 use Hashbangcode\WebolutionDemo\Model\Population as PopulationModel;
 use Hashbangcode\WebolutionDemo\Model\Individual as IndividualModel;
