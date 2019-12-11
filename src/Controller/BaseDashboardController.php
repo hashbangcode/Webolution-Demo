@@ -91,7 +91,8 @@ class BaseDashboardController extends BaseController
       $data = $request->getParsedBody();
 
       if (isset($data['individual-download'])) {
-        $downloadId = array_pop(array_keys($data['individual-download']));
+        $arrayKeys = array_keys($data['individual-download']);
+        $downloadId = array_pop($arrayKeys);
         $individual = $dashboardManager->loadIndividual($downloadId);
 
         $decorator = IndividualDecoratorFactory::getIndividualDecorator($individual, 'html');
