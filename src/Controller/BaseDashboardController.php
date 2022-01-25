@@ -76,7 +76,7 @@ class BaseDashboardController extends BaseController
     }
 
     if ($action == 'run') {
-      for ($i = 0; $i < 100; ++$i) {
+      for ($i = 0; $i < 5; ++$i) {
         $evolution->runGeneration(false);
         $dashboardManager->saveEvolution(static::DASHBOARD_EVOLUTION_ID, $evolution);
       }
@@ -141,7 +141,7 @@ class BaseDashboardController extends BaseController
       $populationFormItems[] = [
         'render' => $decorator->render(),
         'download_button' => '<input class="individual-download" type="submit" value="Download" name="individual-download[' . $id . ']" />',
-        'pick_checkbox' => '<input class="individual-pick" type="checkbox" checked="checked" name="individual-pick[' . $id . ']" /><label for="individual-pick[' . $id . ']">Chosen</label>',
+        'pick_checkbox' => '<input class="individual-pick" type="checkbox" name="individual-pick[' . $id . ']" /><label for="individual-pick[' . $id . ']">Chosen</label>',
         'id' => $id,
       ];
     }

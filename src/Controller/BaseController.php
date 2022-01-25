@@ -2,7 +2,7 @@
 
 namespace Hashbangcode\WebolutionDemo\Controller;
 
-use Interop\Container\ContainerInterface;
+use Psr\Container\ContainerInterface;
 
 /**
  * Class BaseController.
