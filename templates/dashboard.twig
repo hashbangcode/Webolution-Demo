@@ -156,11 +156,10 @@
                     }
                 }
             </script>
-            <input type="button" onclick="selects()" value="Select All" />
-            <input type="button" onclick="deSelect()" value="Deselect All" />
-            <br>
             <form method="post" action="{{ path_for(route_name) }}">
                 <div>
+                    <input type="button" onclick="selects()" value="Select All" />
+                    <input type="button" onclick="deSelect()" value="Deselect All" />
                     <input id="evolution-run" type="submit" value="Run" name="run" />
                 </div>
                 {% for individual in population_form_items %}

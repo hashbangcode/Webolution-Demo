@@ -141,7 +141,7 @@ class BaseDashboardController extends BaseController
       $populationFormItems[] = [
         'render' => $decorator->render(),
         'download_button' => '<input class="individual-download" type="submit" value="Download" name="individual-download[' . $id . ']" />',
-        'pick_checkbox' => '<label class="pick-label" for="individual-pick[' . $id . ']"><input class="individual-pick" type="checkbox" name="individual-pick[' . $id . ']" id="individual-pick[' . $id . ']" />Chosen</label>',
+        'pick_checkbox' => '<label class="pick-label" for="individual-pick[' . $id . ']"><input class="individual-pick" type="checkbox" checked="checked" name="individual-pick[' . $id . ']" id="individual-pick[' . $id . ']" />Chosen</label>',
         'id' => $id,
       ];
     }
