@@ -138,12 +138,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/hashbangcode/webolution.git",
-                "reference": "e31bd4ae5a8688d5a6043284758885a998adda6c"
+                "reference": "a7c0f45caf2fdf4e02d488aa1e2f465ba45e3ce4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hashbangcode/webolution/zipball/e31bd4ae5a8688d5a6043284758885a998adda6c",
-                "reference": "e31bd4ae5a8688d5a6043284758885a998adda6c",
+                "url": "https://api.github.com/repos/hashbangcode/webolution/zipball/a7c0f45caf2fdf4e02d488aa1e2f465ba45e3ce4",
+                "reference": "a7c0f45caf2fdf4e02d488aa1e2f465ba45e3ce4",
                 "shasum": ""
             },
             "require": {
@@ -178,9 +178,9 @@
             ],
             "support": {
                 "issues": "https://github.com/hashbangcode/webolution/issues",
-                "source": "https://github.com/hashbangcode/webolution/tree/2.0.6"
+                "source": "https://github.com/hashbangcode/webolution/tree/2.0.7"
             },
-            "time": "2022-01-02T21:46:21+00:00"
+            "time": "2022-01-26T21:15:31+00:00"
         },
         {
             "name": "monolog/monolog",
