@@ -91,6 +91,16 @@
                 float:left;
             }
 
+            .pick-label {
+                background-color: #fff;
+                border: 1px solid #666;
+                color: #000;
+                padding: 5px 5px;
+                text-align: center;
+                display: inline-block;
+                cursor: pointer;
+            }
+
             a, a:link, a:visited, a:hover, a:active {
                 padding: 0px;
                 margin: 0px;
@@ -129,6 +139,26 @@
         </div>
 
         <div id="population-form">
+            <script type="text/javascript">
+                function selects(){
+                    var ele = document.getElementsByClassName('individual-pick');
+                    for (var i = 0; i < ele.length; i++) {
+                        if(ele[i].type == 'checkbox')
+                            ele[i].checked = true;
+                    }
+                }
+                function deSelect(){
+                    var ele = document.getElementsByClassName('individual-pick');
+                    for (var i = 0; i<ele.length; i++) {
+                        if(ele[i].type == 'checkbox')
+                            ele[i].checked = false;
+
+                    }
+                }
+            </script>
+            <input type="button" onclick="selects()" value="Select All" />
+            <input type="button" onclick="deSelect()" value="Deselect All" />
+            <br>
             <form method="post" action="{{ path_for(route_name) }}">
                 <div>
                     <input id="evolution-run" type="submit" value="Run" name="run" />
@@ -139,9 +169,9 @@
                             {{ individual.render|raw }}
                         </div>
                         <div class="individualOptions">
-                            {{ individual.download_button|raw }}
-                            {{ individual.pick_checkbox|raw }}
-                            <a href="/individual/{{ individual.id }}" target="_blank">View</a>
+                            {{ individual.download_button|raw }}<br>
+                            {{ individual.pick_checkbox|raw }}<br>
+                            <p><a href="/individual/{{ individual.id }}" target="_blank">View</a></p>
                         </div>
                     </div>
                 {% endfor %}
@@ -158,18 +188,19 @@
             {{ graphs }}
         </div>
 
+{% if (past_generations) %}
         <div id="past-generations">
             <h2>Past Generations</h2>
             {% for generation in past_generations %}
                 {{ generation }}
             {% endfor %}
         </div>
+{% endif %}
 
     <div id="operations">
-
         <p><a href="/{{ route_name }}/reset">Reset</a></p>
         <p><a href="/{{ route_name }}/clear_database">Clear Database</a></p>
-        <p><a href="/{{ route_name }}/run">Run evolution for a bit</a></p>
+        <p><a href="/{{ route_name }}/run">Run evolution</a></p>
     </div>
 
     </body>
